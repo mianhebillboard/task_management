@@ -6,7 +6,7 @@
 
 include "database.php";
 
-$sql = "SELECT * FROM tasks ORDER BY due_date DESC";
+$sql = "SELECT * FROM tasks ORDER BY due_date ASC";
 
 $result = $conn->query($sql);
 

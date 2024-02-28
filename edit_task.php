@@ -10,11 +10,11 @@ if (isset($_POST['submit'])) { // button to save an information
     $sql = "UPDATE tasks SET title='$title', description='$description', priority='$priority', due_date='$due_date' WHERE id=$id";
     $result = $conn->query($sql);
 
-    if ($result == TRUE) {
-      header('Location: view_tasks.php');
-    }
-    else{
-        echo "Error:" . $sql . "<br>" . $conn->error;
+    if($result){
+      header("Location: view_tasks.php");
+      $_SESSION['status'] = "Task updated sucessfully!";
+      $_SESSION['status_code'] = "success";
+      exit();
     }
 }
 
